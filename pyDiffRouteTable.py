@@ -46,7 +46,8 @@ def main():
         # print the difference between the two most recent files.
         print_diff_last_two_files(groups)
 
-def get_vrf_group(files_list: [str]) -> {str, [str]}:
+# def get_vrf_group(files_list: [str]) -> {str, [str]}:
+def get_vrf_group(files_list: [str]):
     """
     Group files by VRF name.
     """
@@ -75,7 +76,8 @@ def get_vrf_group(files_list: [str]) -> {str, [str]}:
         groups[vrf_name].append(filename_path)
     return groups
 
-def print_diff_last_two_files(groups: {str, [str]}):
+#def print_diff_last_two_files(groups: {str, [str]}):
+def print_diff_last_two_files(groups):
     """
     print the difference between the two most recent files.
     """
