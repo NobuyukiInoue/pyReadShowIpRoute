@@ -13,6 +13,7 @@ Options:
 import docopt
 import os
 import re
+from typing import List, Dict, Tuple
 
 from commonLib import lib_common
 from commonLib import lib_ip
@@ -46,8 +47,7 @@ def main():
         # print the difference between the two most recent files.
         print_diff_last_two_files(groups)
 
-# def get_vrf_group(files_list: [str]) -> {str, [str]}:
-def get_vrf_group(files_list: [str]):
+def get_vrf_group(files_list: List[str]) -> Dict[str, List[str]]:
     """
     Group files by VRF name.
     """
@@ -76,8 +76,7 @@ def get_vrf_group(files_list: [str]):
         groups[vrf_name].append(filename_path)
     return groups
 
-#def print_diff_last_two_files(groups: {str, [str]}):
-def print_diff_last_two_files(groups):
+def print_diff_last_two_files(groups: Dict[str, List[str]]):
     """
     print the difference between the two most recent files.
     """

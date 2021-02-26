@@ -24,6 +24,7 @@ Example:
 import docopt
 import os
 import sys
+
 from commonLib import lib_common
 from commonLib import lib_ip
 from commonLib import lib_contents_to_list

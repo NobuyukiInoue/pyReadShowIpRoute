@@ -3,8 +3,9 @@
 import os
 import re
 import sys
+from typing import List, Dict, Tuple
 
-def get_file_contents(filename_path: str) -> [str]:
+def get_file_contents(filename_path: str) -> List[str]:
     """
     Get file contents.
     """
@@ -21,7 +22,8 @@ def get_file_contents(filename_path: str) -> [str]:
             continue
     return contents
 
-def get_contents_target_command(contents: [str], target_command: str, prompt_char: [str], enable_perfect_match: bool) -> ([str], [str]):
+def get_contents_target_command(contents: List[str], target_command: str, prompt_char: List[str], enable_perfect_match: bool) -> Tuple[List[str], List[str]]:
+
     """
     Get execution result of target_command.
     """
@@ -69,7 +71,7 @@ def get_contents_target_command(contents: [str], target_command: str, prompt_cha
 
     return contents_target_command, prompt_list
 
-def isPrompt(line: str, prompt_list: [str]) -> bool:
+def isPrompt(line: str, prompt_list: List[str]) -> bool:
     """
     Determine if the target string contains a prompt.
     """
@@ -78,7 +80,7 @@ def isPrompt(line: str, prompt_list: [str]) -> bool:
             return True
     return False
 
-def print_contents_target_command(filename_path: str, contents_target_command: [str]):
+def print_contents_target_command(filename_path: str, contents_target_command: List[str]):
     """
     Print execution result of target_command.
     """
@@ -88,7 +90,7 @@ def print_contents_target_command(filename_path: str, contents_target_command: [
     for line in contents_target_command:
         print(line, end="")
 
-def find_dirs(directory: str) -> [str]:
+def find_dirs(directory: str) -> List[str]:
     """
     List the paths of files that match patternStr under the specified directory.
     """
@@ -98,7 +100,7 @@ def find_dirs(directory: str) -> [str]:
     dirList.sort()
     return dirList
 
-def find_all_matched_files(directory: str, patternStr: str) -> [str]:
+def find_all_matched_files(directory: str, patternStr: str) -> List[str]:
     """
     List the paths of files that match patternStr under the specified directory.
     """
@@ -116,7 +118,7 @@ def find_all_matched_files(directory: str, patternStr: str) -> [str]:
     fileList.sort()
     return fileList
 
-def split_dirname_and_filename(filename_path: str) -> (str, str):
+def split_dirname_and_filename(filename_path: str) -> Tuple[str, str]:
     if "/" in filename_path:
         split_char = "/"
     elif "\\" in filename_path:

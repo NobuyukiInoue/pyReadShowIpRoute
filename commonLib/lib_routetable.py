@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 
 import os
+from typing import List, Dict, Tuple
 
 from . import lib_common
 from . import lib_contents_to_list
 
-def model_judgment(filename_path: str, contents: [str]) -> str:
+def model_judgment(filename_path: str, contents: List[str]) -> str:
     """
     model judgment.
     """
@@ -74,7 +75,7 @@ def model_judgment(filename_path: str, contents: [str]) -> str:
 
     return None
 
-def get_ip_route_result(filename_path: str, modelName: str, contents: [str], enable_print: bool, enable_exit: bool) -> ([[str]], str, [str]):
+def get_ip_route_result(filename_path: str, modelName: str, contents: List[str], enable_print: bool, enable_exit: bool) -> Tuple[List[List[str]], str, List[str]]:
     prompt_char = ["#", "> ", ">"]
     enable_perfect_match = True
     table = None
@@ -162,7 +163,7 @@ def get_ip_route_result(filename_path: str, modelName: str, contents: [str], ena
 
     return table, target_command, contents_target_command
 
-def print_table(modelName: str, filename_path: str, table: [[str]], enable_sort: bool):
+def print_table(modelName: str, filename_path: str, table: List[List[str]], enable_sort: bool):
     """
     print table
     table[vrf_id] fields:
@@ -196,7 +197,7 @@ def print_table(modelName: str, filename_path: str, table: [[str]], enable_sort:
             print("{0:20}{1:14}{2:20}{3:24}{4}".format(row[1], row[2], row[3], row[5], row[6]))
     print()
 
-def save_contents(filename_path: str, target_directory: str, target_command: str, contents: [str]):
+def save_contents(filename_path: str, target_directory: str, target_command: str, contents: List[str]):
     # remove prohibited characters.
     target_command = remove_prohibited_characters(target_command).replace(" ", "_")
 
@@ -222,7 +223,7 @@ def save_contents(filename_path: str, target_directory: str, target_command: str
     f.close
     print("{0} was saved.".format(newfilename_path))
 
-def save_table(modelName: str, filename_path: str, table: [[str]], target_directory: str, enable_sort: bool):
+def save_table(modelName: str, filename_path: str, table: List[List[str]], target_directory: str, enable_sort: bool):
     """
     save table
     """

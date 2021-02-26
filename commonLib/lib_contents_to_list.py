@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 
 import sys
+from typing import List, Dict, Tuple
 
 from . import lib_common
 from . import lib_ip
 
-def for_Cisco(filename_path: str, contents_target_command: [str], enable_exit: bool) -> [[str]]:
+def for_Cisco(filename_path: str, contents_target_command: List[str], enable_exit: bool) -> List[List[str]]:
     """
     Store the execution result of "show ip route vrf *" in the list.
     """
@@ -145,7 +146,7 @@ def for_Cisco(filename_path: str, contents_target_command: [str], enable_exit: b
 
     return table
 
-def for_IP8800(filename_path: str, contents_target_command: [str], enable_exit: bool) -> [[str]]:
+def for_IP8800(filename_path: str, contents_target_command: List[str], enable_exit: bool) -> List[List[str]]:
     """
     Store the execution result of "show ip route vrf *" in the list.
     """
@@ -236,7 +237,7 @@ def for_IP8800(filename_path: str, contents_target_command: [str], enable_exit: 
 
     return table
 
-def for_Junos(filename_path: str, contents_target_command: [str], enable_exit: bool) -> [[str]]:
+def for_Junos(filename_path: str, contents_target_command: List[str], enable_exit: bool) -> List[List[str]]:
     """
     Store the execution result of "show route terse" in the list.
     """
@@ -331,7 +332,7 @@ def for_Junos(filename_path: str, contents_target_command: [str], enable_exit: b
 
     return table
 
-def for_Aruba(filename_path: str, contents_target_command: [str], enable_exit: bool) -> [[str]]:
+def for_Aruba(filename_path: str, contents_target_command: List[str], enable_exit: bool) -> List[List[str]]:
     """
     Store the execution result of "show ip route vrf *" in the list.
     """
@@ -412,7 +413,7 @@ def for_Aruba(filename_path: str, contents_target_command: [str], enable_exit: b
 
     return table
 
-def for_QX(filename_path: str, contents_target_command: [str], enable_exit: bool) -> [[str]]:
+def for_QX(filename_path: str, contents_target_command: List[str], enable_exit: bool) -> List[List[str]]:
     """
     Store the execution result of "display ip routing-table" in the list.
     """
